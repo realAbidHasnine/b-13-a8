@@ -2,7 +2,12 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-const client = new MongoClient(process.env.AUTH_DB_URI);
+const dbUri = process.env.AUTH_DB_URI;
+if (!dbUri) {
+    throw new Error("Missing AUTH_DB_URI environment variable");
+}
+
+const client = new MongoClient(dbUri);
 const dbPromise = client.connect().then(client => client.db("better-auth"));
 
 export const auth = betterAuth({
