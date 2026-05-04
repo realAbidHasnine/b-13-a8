@@ -64,6 +64,8 @@ const Navbar = () => {
                       <Image
                         src={user.image}
                         alt={user.name || "User avatar"}
+                        width={32}
+                        height={32}
                         className="h-full w-full object-cover"
                       />
                     </div>
@@ -76,7 +78,7 @@ const Navbar = () => {
                     <div className="flex flex-col items-center gap-2">
                       {user.image && (
                         <div className="relative h-14 w-14 overflow-hidden rounded-full border border-gray-200 dark:border-gray-700">
-                          <Image src={user.image} alt={user.name} className="h-full w-full object-cover" />
+                          <Image src={user.image} alt={user.name} width={56} height={56} className="h-full w-full object-cover" />
                         </div>
                       )}
                       <p className="font-medium text-gray-900 dark:text-white">{user.name}</p>
@@ -158,7 +160,7 @@ const Navbar = () => {
                   <div className="flex items-center gap-3">
                     {user.image ? (
                       <div className="relative h-10 w-10 overflow-hidden rounded-full border border-gray-200 dark:border-gray-700">
-                        <Image src={user.image} alt={user.name} className="h-full w-full object-cover" />
+                        <Image src={user.image} alt={user.name} width={40} height={40} className="h-full w-full object-cover" />
                       </div>
                     ) : (
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">

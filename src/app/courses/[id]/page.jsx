@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { Star, Clock, User, Layers, ArrowRight, BookOpen, Play, Circle } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { useEffect, useState } from "react";
@@ -32,22 +32,22 @@ const curriculumModules = [
 const CourseDetailsPage = () => {
   const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
+  const params = useParams();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!isPending && !session?.user) {
-      router.push(`/auth/login?redirect=/courses/${window.location.pathname.split('/').pop()}`);
+      router.push(`/auth/login?redirect=/courses/${params.id}`);
     }
-  }, [isPending, session, router]);
+  }, [isPending, session, router, params.id]);
 
   useEffect(() => {
     const fetchCourse = async () => {
-      const id = window.location.pathname.split('/').pop();
       try {
         const res = await fetch('/data.json');
         const courses = await res.json();
-        const found = courses.find((c) => String(c.id) === String(id));
+        const found = courses.find((c) => String(c.id) === String(params.id));
         setCourse(found);
       } catch (e) {
         // Failed to fetch course
@@ -59,7 +59,7 @@ const CourseDetailsPage = () => {
     if (session?.user) {
       fetchCourse();
     }
-  }, [session]);
+  }, [session, params.id]);
 
   if (isPending || loading) {
     return (

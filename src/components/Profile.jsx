@@ -126,7 +126,8 @@ const Profile = () => {
                 <Image
                   src={user.image}
                   alt={user.name}
-                  fill
+                  width={64}
+                  height={64}
                   className="object-cover"
                 />
               ) : (

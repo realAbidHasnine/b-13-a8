@@ -5,11 +5,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
-import { useState, useEffect } from "react";
+import { useState, Suspense } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
-const LoginPage = () => {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") || "/";
@@ -46,14 +46,14 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 py-16 px-4 sm:px-6 lg:px-8 font-sans flex items-center justify-center">
-      
+
       {/* Main Container - High contrast border instead of heavy shadows */}
       <div className="w-full max-w-5xl bg-white dark:bg-black rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden flex flex-col md:flex-row">
-        
+
         {/* Left Side: Form */}
         <div className="flex-1 px-6 py-12 sm:px-12 flex flex-col justify-center">
           <div className="w-full max-w-sm mx-auto">
-            
+
             {/* Vercel style tight tracking for headers */}
             <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white mb-2">
               Welcome back
@@ -63,7 +63,7 @@ const LoginPage = () => {
             </p>
 
             <form onSubmit={handleSubmit(handleLoginFunc)} className="space-y-5">
-              
+
               {/* Email Field */}
               <div>
                 <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
@@ -167,6 +167,12 @@ const LoginPage = () => {
       </div>
     </div>
   );
-};
+}
 
-export default LoginPage;
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
+  );
+}
