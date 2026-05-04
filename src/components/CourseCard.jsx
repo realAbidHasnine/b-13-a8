@@ -1,6 +1,8 @@
+"use client";
+
 import Link from 'next/link';
-import Image from 'next/image';
 import { Star, Clock, BookOpen, Flame } from 'lucide-react';
+import mitLogo from '@/assets/MIT-Logo.jpg';
 
 const CourseCard = ({ course, badge }) => {
   return (
@@ -13,11 +15,12 @@ const CourseCard = ({ course, badge }) => {
           </div>
         )}
         <div className="aspect-video bg-muted relative overflow-hidden">
-          <Image
-            src={course.image}
+          <img
+            src={course.image || mitLogo.src}
             alt={course.title}
-            fill
-            className="object-cover"
+            className="w-full h-full object-cover"
+            onError={(e) => { e.target.src = mitLogo.src; }}
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-white/5 transition-colors duration-200" />
         </div>

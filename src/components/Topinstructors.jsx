@@ -1,6 +1,4 @@
-import React from "react";
 import { Star, Trophy, CheckCircle2 } from "lucide-react";
-import Image from "next/image";
 
 const instructors = [
   {
@@ -55,12 +53,12 @@ const TopInstructors = () => {
               key={index}
               className="border border-border rounded-xl p-6 text-center hover:border-neutral-300 dark:hover:border-neutral-600 transition-colors"
             >
-               <div className="relative w-16 h-16 rounded-full mx-auto overflow-hidden border border-border">
-                 <Image
+               <div className="w-16 h-16 rounded-full mx-auto overflow-hidden border border-border">
+                 <img
                    src={instructor.image}
                    alt={instructor.name}
-                   fill
-                   className="object-cover"
+                   className="w-full h-full object-cover"
+                   loading="lazy"
                  />
                </div>
 

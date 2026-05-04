@@ -2,7 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   User,
@@ -26,17 +26,18 @@ const Profile = () => {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
 
-  if (isPending) {
+  useEffect(() => {
+    if (!isPending && !session?.user) {
+      router.push("/auth/login");
+    }
+  }, [isPending, session, router]);
+
+  if (isPending || !session?.user) {
     return (
       <div className="flex justify-center items-center py-20">
         <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
       </div>
     );
-  }
-
-  if (!session?.user) {
-    router.push("/auth/login");
-    return null;
   }
 
   const user = session.user;
