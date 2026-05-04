@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-// import loginImg from "../../../assets/login3.png";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
@@ -155,12 +153,9 @@ const LoginPage = () => {
 
         {/* Right Side: Image with subtle background separation */}
         <div className="hidden md:flex md:w-1/2 bg-neutral-50 dark:bg-neutral-900 border-l border-neutral-200 dark:border-neutral-800 items-center justify-center p-12">
-          <Image
-            src={loginImg}
-            alt="Login Visual"
-            className="w-full max-w-125 object-contain drop-shadow-sm"
-            priority
-          />
+          <div className="w-full max-w-64 aspect-square rounded-full bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center">
+            <p className="text-neutral-400 dark:text-neutral-600 text-sm font-medium">Add your image here</p>
+          </div>
         </div>
 
       </div>
