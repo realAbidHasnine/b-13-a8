@@ -2,7 +2,7 @@ import { Flame } from "lucide-react";
 import CourseCard from "./CourseCard";
 
 const TopCourses = async () => {
-  const res = await fetch(new URL("/data.json", process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000").toString(), {
+  const res = await fetch(new URL("/data.json", process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000").toString(), {
     next: { revalidate: 3600 },
   });
   const courses = await res.json();
@@ -27,7 +27,7 @@ const TopCourses = async () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {topCourses.map(course => (
-            <CourseCard key={course.id} course={course} />
+            <CourseCard key={course.id} course={course} badge="Trending" />
           ))}
         </div>
       </div>

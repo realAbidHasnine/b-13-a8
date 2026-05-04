@@ -1,14 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirect") || "/";
+
   const {
     register,
     handleSubmit,
@@ -23,7 +28,7 @@ const LoginPage = () => {
       email: email,
       password: password,
       rememberMe: true,
-      callbackURL: "/",
+      callbackURL: redirectTo,
     });
 
     if (error) {
@@ -31,11 +36,12 @@ const LoginPage = () => {
     }
     if (res) {
       toast.success("Login successful!");
+      router.push(redirectTo);
     }
   };
 
   const handleGoogleSignIn = async () => {
-    await authClient.signIn.social({ provider: "google" });
+    await authClient.signIn.social({ provider: "google", callbackURL: redirectTo });
   };
 
   return (

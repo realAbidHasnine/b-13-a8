@@ -1,14 +1,24 @@
 import Link from 'next/link';
-import { Star, Clock, BookOpen } from 'lucide-react';
+import Image from 'next/image';
+import { Star, Clock, BookOpen, Flame } from 'lucide-react';
 
-const CourseCard = ({ course }) => {
+const CourseCard = ({ course, badge }) => {
   return (
     <Link href={`/courses/${course.id}`}>
-      <div className="group border border-border rounded-xl overflow-hidden bg-card hover:border-neutral-300 dark:hover:border-neutral-600 transition-colors duration-200">
-        <div className="aspect-video bg-muted relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-muted-foreground text-sm font-medium">{course.category}</span>
+      <div className="group border border-border rounded-xl overflow-hidden bg-card hover:border-neutral-300 dark:hover:border-neutral-600 transition-colors duration-200 relative">
+        {badge && (
+          <div className="absolute top-3 left-3 z-10 flex items-center gap-1 px-2 py-1 rounded-full bg-orange-500 text-white text-xs font-medium">
+            <Flame className="w-3 h-3" />
+            {badge}
           </div>
+        )}
+        <div className="aspect-video bg-muted relative overflow-hidden">
+          <Image
+            src={course.image}
+            alt={course.title}
+            fill
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-white/5 transition-colors duration-200" />
         </div>
         <div className="p-5">
@@ -22,16 +32,14 @@ const CourseCard = ({ course }) => {
           <h3 className="font-semibold text-base mb-1 line-clamp-2 group-hover:text-neutral-500 transition-colors">
             {course.title}
           </h3>
-          <p className="text-sm text-muted-foreground mb-3">{course.instructor}</p>
+          <p className="text-sm text-muted-foreground mb-2 line-clamp-2">{course.description}</p>
+          <p className="text-xs text-muted-foreground mb-3">{course.instructor}</p>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1 text-sm">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               <span className="font-medium">{course.rating}</span>
             </div>
-            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-              <BookOpen className="w-3 h-3" />
-              <span>{course.courseCode}</span>
-            </div>
+            <span className="text-xs font-medium text-green-600">Free</span>
           </div>
         </div>
       </div>

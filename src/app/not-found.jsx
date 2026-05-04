@@ -17,12 +17,12 @@ const NotFoundPage = () => {
       </p>
 
       
-      <Link 
-        href="/"
-        className="mt-8 bg-black text-white dark:bg-white dark:text-black border border-transparent dark:border-white px-6 py-2.5 rounded-md text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
-      >
-        Go Back Home
-      </Link>
+       <Link
+         href="/"
+         className="mt-8 bg-black text-white dark:bg-white dark:text-black border border-transparent dark:border-white px-6 py-2.5 rounded-md text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
+       >
+         Go Home
+       </Link>
 
     </div>
   );

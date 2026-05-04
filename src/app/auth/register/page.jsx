@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
@@ -9,6 +10,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const RegisterPage = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -24,7 +26,7 @@ const RegisterPage = () => {
       email: email,
       password: password,
       image: photo,
-      callbackURL: "/",
+      callbackURL: "/auth/login",
     });
 
     if (error) {
@@ -32,11 +34,12 @@ const RegisterPage = () => {
     }
     if (res) {
       toast.success("Registration successful! 🎉");
+      router.push("/auth/login");
     }
   };
 
   const handleGoogleSignIn = async () => {
-    await authClient.signIn.social({ provider: "google" });
+    await authClient.signIn.social({ provider: "google", callbackURL: "/auth/login" });
   };
 
   return (
