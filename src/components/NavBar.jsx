@@ -43,7 +43,7 @@ const Navbar = () => {
             <Link href="/" className={`text-sm font-medium ${linkClass("/")}`}>
               Home
             </Link>
-            <Link href="/courseCard" className={`text-sm font-medium ${linkClass("/courseCard")}`}>
+            <Link href="/courses" className={`text-sm font-medium ${linkClass("/courses")}`}>
               All Courses
             </Link>
             <Link href="/profile" className={`text-sm font-medium ${linkClass("/profile")}`}>
@@ -134,8 +134,8 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              href="/courseCard"
-              className={`text-sm font-medium ${linkClass("/courseCard")}`}
+              href="/courses"
+              className={`text-sm font-medium ${linkClass("/courses")}`}
               onClick={() => setMenuOpen(false)}
             >
               All Courses
