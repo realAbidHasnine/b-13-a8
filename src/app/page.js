@@ -1,13 +1,13 @@
 import Banner from "@/components/Banner";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/NavBar";
+import TopCourses from "@/components/Topcourses";
+import TopInstructors from "@/components/Topinstructors";
 
 export default function Home() {
   return (
-    <div className="">
-      <Navbar></Navbar>
-      <Banner></Banner>
-      <Footer></Footer>
-    </div>
+    <>
+      <Banner />
+      <TopCourses />
+      <TopInstructors />
+    </>
   );
 }

@@ -20,7 +20,7 @@ const AllCoursesPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center py-20">
         <div className="animate-pulse text-muted-foreground">Loading courses...</div>
       </div>
     )
