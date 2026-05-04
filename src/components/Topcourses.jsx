@@ -1,12 +1,8 @@
 import { Flame } from "lucide-react";
 import CourseCard from "./CourseCard";
+import courses from "@/data/courses.json";
 
 const TopCourses = async () => {
-  const res = await fetch(new URL("/data.json", process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000").toString(), {
-    next: { revalidate: 3600 },
-  });
-  const courses = await res.json();
-
   const topCourses = [...courses]
     .sort((a, b) => Number(b.rating) - Number(a.rating))
     .slice(0, 3);
