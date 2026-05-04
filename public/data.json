@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch.",
+    "image": "https://i.postimg.cc/example-course1.png",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "Advanced UI/UX Design Principles",
+    "instructor": "Jane Smith",
+    "duration": "12 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Master Figma and user-centered design concepts.",
+    "image": "https://i.postimg.cc/example-course2.png",
+    "category": "Design"
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Masterclass",
+    "instructor": "Sarah Johnson",
+    "duration": "15 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Grow any business with SEO, social media, and ads.",
+    "image": "https://i.postimg.cc/example-course3.png",
+    "category": "Marketing"
+  },
+  {
+    "id": 4,
+    "title": "React and Next.js for Enterprise",
+    "instructor": "Alan Turing",
+    "duration": "25 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Build scalable and highly performant web applications.",
+    "image": "https://i.postimg.cc/example-course4.png",
+    "category": "Development"
+  },
+  {
+    "id": 5,
+    "title": "Photography for Beginners",
+    "instructor": "Michael Chen",
+    "duration": "8 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Learn to shoot like a pro using DSLR or mirrorless cameras.",
+    "image": "https://i.postimg.cc/example-course5.png",
+    "category": "Photography"
+  },
+  {
+    "id": 6,
+    "title": "Spring Boot Microservices",
+    "instructor": "Grace Hopper",
+    "duration": "30 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Develop robust backend architectures using Java and Spring.",
+    "image": "https://i.postimg.cc/example-course6.png",
+    "category": "Development"
+  },
+  {
+    "id": 7,
+    "title": "Graphic Design Bootcamps",
+    "instructor": "David Lee",
+    "duration": "18 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn Photoshop, Illustrator, and InDesign from scratch.",
+    "image": "https://i.postimg.cc/example-course7.png",
+    "category": "Design"
+  },
+  {
+    "id": 8,
+    "title": "The Complete SEO Guide",
+    "instructor": "Emily Davis",
+    "duration": "10 hours",
+    "rating": 4.4,
+    "level": "All Levels",
+    "description": "Rank #1 on Google with modern search engine optimization techniques.",
+    "image": "https://i.postimg.cc/example-course8.png",
+    "category": "Marketing"
+  },
+  {
+    "id": 9,
+    "title": "Data Structures & Algorithms",
+    "instructor": "Linus Torvalds",
+    "duration": "40 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Ace your coding interviews by mastering complex data structures.",
+    "image": "https://i.postimg.cc/example-course9.png",
+    "category": "IT & Software"
+  },
+  {
+    "id": 10,
+    "title": "Business Leadership Dynamics",
+    "instructor": "Robert Kiyosaki",
+    "duration": "14 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Learn the skills required to manage and lead effective teams.",
+    "image": "https://i.postimg.cc/example-course10.png",
+    "category": "Business"
+  }
+]
